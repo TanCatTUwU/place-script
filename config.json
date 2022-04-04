@@ -1,49 +1,17 @@
 {
-    "image_path": "target2.png",
+    "image_path": "image.png",
     "image_start_coords": [428, 1676],
     "thread_delay": 2,
     "unverified_place_frequency": true,
     "compact_logging": true,
     "workers": {
-        "FuckYouBBL": {
-            "password": "DitconmeBBL",
+        "username1": {
+            "password": "mật khẩu",
             "start_coords": [0, 0]
         },
-        "DitMeBBL": {
-            "password": "FuckYouBBL",
+        "username2": {
+            "password": "mật khẩu cho tài khoản 2",
             "start_coords": [1, 0]
-        },
-        "BBLSuckMyDick": {
-            "password": "YeaSuckMyDickBBL",
-            "start_coords": [2, 0]
-        },
-        "tancattt": {
-            "password": "1234567765",
-            "start_coords": [3, 0]
-			},
-        "TurkishSuckMyDick": {
-            "password": "SuckMyDickTurkish",
-            "start_coords": [4, 0]
-			},
-        "DitMeThoNhiKi": {
-            "password": "ThoNhiKiBuCuTao",
-            "start_coords": [5, 0]
-			},
-        "CongBangChoVietNam": {
-            "password": "DitMeTatCaChungMay",
-            "start_coords": [6, 0]
-			},
-        "AwA_Neko_AwA": {
-            "password": "LekoOwO_LekOwO",
-            "start_coords": [7, 0]
-			},
-        "Kakushitsu_Neko": {
-            "password": "I_Am_Horny_Cat",
-            "start_coords": [8, 0]
-			},
-        "hornynekoisthebest": {
-            "password": "Kakushitsu_Neko",
-            "start_coords": [9, 0]
-			}
+        }
     }
 }
