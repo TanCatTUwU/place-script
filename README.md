@@ -6,7 +6,7 @@
 
 ## Disclaimer
 
-I'm not the owner of this script.
+This is a copy of rdeepak2002 version
 
 ## Thông tin
 
