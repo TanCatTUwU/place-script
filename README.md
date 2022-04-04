@@ -8,81 +8,56 @@
 
 I'm not the owner of this script.
 
-## About
+## Thông tin
 
-This is a script to draw an image onto r/place (<https://www.reddit.com/r/place/>).
+Script này sẽ vẽ hình ảnh vào r/place (<https://www.reddit.com/r/place/>).
 
-## Features
+## Tính năng
 
-- Support for multiple accounts
-- Determines the cooldown time remaining for each account
-- Detects existing matching pixels on the r/place map and skips them
-- Automatically converts colors to the r/place color palette
-- Easy(ish) to read output with colors
-- SOCKS proxy support
-- No client id and secret needed
-- Proxies from "proxies.txt" file
+- Hỗ trợ chạy nhiều tài khoản cùng lúc
+- Xác định thời gian có thể đặt pixel trở lại của từng tài khoản
+- Tự nhận diện các pixel cùng màu và né chúng
+- Tự động chuyển đổi màu của hình ảnh sang bảng màu của r/place
+- Dễ dàng để sử dụng
+- Hỗ trợ proxy SOCKS
+- Không cần client id và secret code
+- Đọc proxies từ proxies.txt
 
-## Requirements
+## Những thứ cần để chạy
 
-- [Latest Version of Python 3](https://www.python.org/downloads/)
+- [Bản mới nhất của Python 3](https://www.python.org/downloads/)
 
 ## MacOSX
-If you are using MacOSX and encounter an SSL_CERTIFICATE error. Please apply the fix detailed https://stackoverflow.com/questions/42098126/mac-osx-python-ssl-sslerror-ssl-certificate-verify-failed-certificate-verify  
+Nếu bạn dùng MacOS và gặp lỗi SSL_CERTIFICATE. Bạn có thể fix nó theo hướng dẫn này https://stackoverflow.com/questions/42098126/mac-osx-python-ssl-sslerror-ssl-certificate-verify-failed-certificate-verify  
 
-If you want to use tor on MacOSX. you'll need to provide your own tor binary and start it manually. deactivate the "use_builtin tor"
-option in the config and make sure you configure your tor to use the specified ports and password. 
-<br>*note that socks proxy connection to tor doesn't work for the time being, so the config value is for an httpTunnel port*
+## Hướng dẫn cài đặt
 
-## Get Started
-
-Move the file 'config_example.json' to config.json
-
-Edit the values to replace with actual credentials and values
-
-Note: Please use https://jsonlint.com/ to check that your JSON file is correctly formatted
-
-```json
-{
-  //Where the image's path is
-  "image_path":"image.png",
-  // [x,y] where you want the top left pixel of the local image to be drawn on canvas
-  "image_start_coords": [741, 610],
-  // delay between starting threads (can be 0)
-  "thread_delay": 2,
-  // array of accounts to use
+Thay username và password của bạn trong file config.json
+ví dụ:
   "workers": {
-    // username of account 1
-    "worker1username": {
-      // password of account 1
-      "password": "password",
-      // which pixel of the image to draw first
+    "username": {
+      "password": "mật khẩu",
       "start_coords": [0, 0]
     },
-    // username of account 2
-    "worker1username": {
-      // password of account 2
-      "password": "password",
-      // which pixel of the image to draw first
-      "start_coords": [0, 0]
-    }
-    // etc... add as many accounts as you want (but reddit may detect you the more you add)
+    "username2": {
+      "password": "mật khẩu",
+      "start_coords": [0, 1]
+    },...
   }
 }
 ```
-
 ### Notes
 
-- Change image.jpg/png to specify what image to draw. One pixel is drawn every 5 minutes. PNG takes priority over JPG.
-- Pixels with color (69, 42, 0) in the image will be skipped over, useful for non-rectangular drawings.
-- If you use 2 factor authentication (2FA) in your account, then change "password" to "password:XXXXXX" where XXXXXX is your 2FA code.
+- Bạn có thể đổi tên file target2.png bằng bất cứ file nào miễn đuôi tệp là .jpg hoặc .png
+- Những pixel với bảng màu R, G, B là 69, 42, 0 sẽ bị skip, nó sẽ hữu dụng cho các hình tứ giác
+- Nếu bạn sử dụng xác minh hai bước (2FA) thì hãy đổi "mật khẩu" thành "mật khẩu:XXXXXX" trong đó 'XXXXXX' là mã 2FA của bạn
 
-## Run the Script
+## Chạy script
 
 ### Windows
 
 ```shell
-start.bat or startverbose.bat
+chạy file start.bat hoặc startverbose.bat
 ```
 
 ### Unix-like (Linux, MacOS etc.)
@@ -94,11 +69,12 @@ chmod +x start.sh startverbose.sh
 
 ### You can get more logs (`DEBUG`) by running the script with `-d` flag
 
+(không cần thiết nên không dịch)
 `python3 main.py -d` or `python3 main.py --debug`
 
-## Multiple Workers
+## Chạy nhiều tài khoản
 
-Just create multiple child arrays to "workers" in the .json
+Bạn có thể chạy thêm nhiều tài khoản bằng cách thêm các username
 
 ```json
 {
@@ -119,13 +95,13 @@ Just create multiple child arrays to "workers" in the .json
 }
 ```
 
-In this case, the first worker will start drawing from (0, 0) and the second worker will start drawing from (0, 50) from the input image.jpg file.
+Ở đây, tài khoản 1 sẽ vẽ từ toạ độ 0, 0 của target.png và tài khoản 2 sẽ vẽ từ toạ độ 0, 50 của target.png
 
-This is useful if you want different threads drawing different parts of the image with different accounts.
+Cái này sẽ hữu dụng nếu bạn muốn vẽ nhiều phần của target.png với nhiều tài khoản
 
-## Other Settings
+## Các setting khác
 
-If any JSON decoders errors are found, the `config.json` needs a fix. Make sure to add the below 2 lines in the file.
+Nếu gặp các lỗi về file json thì hãy kiểm tra lỗi chính tả, hoặc `config.json` cần fix. Hãy chắc rằng bạn add thêm dòng này vào trong file config.json
 
 ```json
 {
@@ -136,16 +112,17 @@ If any JSON decoders errors are found, the `config.json` needs a fix. Make sure 
 }
 ```
 
-- thread_delay - Adds a delay between starting a new thread. Can be used to avoid ratelimiting
-- unverified_place_frequency - Sets the pixel place frequency to the unverified account limit
-- proxies - Sets proxies to use for sending requests to reddit. The proxy used is randomly selected for each request. Can be used to avoid ratelimiting
-- compact_logging - Disables timer text until next pixel
+- thread_delay - Thêm độ trễ giữa lúc bắt đầu thêm pixel và kết thúc. Có thể sử dụng để tránh bot chạy đúng vào khi nó đang cooldown
+- unverified_place_frequency - Đặt giới hạn pixel cho các tài khoản chưa được xác minh
+- proxies - Dặt proxies để gửi các yêu cầu đến Reddit mà không bị ban. Proxies được chọn ngẫu nhiên mỗi lần gửi yêu cầu. Cũng có thể được sử dụng để tránh cooldown
+- compact_logging - Loại bỏ bộ đếm ngược cho đến pixel tiếp theo
 
-- Transparency can be achieved by using the RGB value (69, 42, 0) in any part of your image
-- If you'd like, you can enable Verbose Mode by adding --verbose to "python main.py". This will output a lot more information, and not neccessarily in the right order, but it is useful for development and debugging.
-- You can also setup proxies by creating a "proxies" and have a new line for each proxies
+- Điểm mà bot không vẽ có thể sử dụng mà RGB (69, 42, 0) trong bất cứ phần nào của hình ảnh
+- Chạy file startverbose.bat/.sh thì bạn sẽ có nhiều thông tin khi bot chạy hơn, có thể hữu dụng khi bạn đang sửa lỗi hoặc test
+- Bạn cũng có thể add thêm proxies bằng cách ghi thêm "proxies" và cách chúng ra mỗi dòng.
 
 # Tor
+(chắc trong server này chả ai muốn dùng tor để chạy bot đâu nên tôi không dịch)
 tor is can be used as an alternative to normal proxies. Note that currently, you cannot use normal proxies and tor at the same time.
 
 ```json
@@ -211,6 +188,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## Docker
 
+(không quan trọng, không dịch)
 A dockerfile is provided. Instructions on installing docker are outside the scope of this guide.
 
 To build: After editing your config.json, run `docker build . -t place-bot`. and wait for the image to build
@@ -220,6 +198,6 @@ You can now run with
 `docker run place-bot`
 
 
-## Contributing
+## Các đóng góp
 
-See the [Contributing Guide](docs/CONTRIBUTING.md)
+Xem file [Contributing Guide](docs/CONTRIBUTING.md)
