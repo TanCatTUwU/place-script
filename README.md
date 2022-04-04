@@ -4,6 +4,10 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
 
+## Disclaimer
+
+I'm not the owner of this script.
+
 ## About
 
 This is a script to draw an image onto r/place (<https://www.reddit.com/r/place/>).
