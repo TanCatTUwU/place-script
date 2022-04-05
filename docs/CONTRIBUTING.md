@@ -13,3 +13,4 @@
 `nox` will run the following: 
   * `flake8` to check for formatting issues: https://flake8.pycqa.org/en/latest/
   * `flake8-black` to check for style issues:
+ 
