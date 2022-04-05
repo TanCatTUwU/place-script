@@ -1,8 +1,6 @@
 # Reddit Place Script 2022
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
 
 It's all gone now, thanks for the effort guys, after all, r/place 2022 is just an april fool joke?
 
@@ -124,7 +122,7 @@ Nếu gặp các lỗi về file json thì hãy kiểm tra lỗi chính tả, ho
 - Bạn cũng có thể add thêm proxies bằng cách ghi thêm "proxies" và cách chúng ra mỗi dòng.
 
 # Tor
-(chắc trong server này chả ai muốn dùng tor để chạy bot đâu nên tôi không dịch)
+
 tor is can be used as an alternative to normal proxies. Note that currently, you cannot use normal proxies and tor at the same time.
 
 ```json
