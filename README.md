@@ -123,7 +123,8 @@ Nếu gặp các lỗi về file json thì hãy kiểm tra lỗi chính tả, ho
 
 # Tor
 
-tor is can be used as an alternative to normal proxies. Note that currently, you cannot use normal proxies and tor at the same time.
+Tor is can be used as an alternative to normal proxies. Note that currently, you cannot use normal proxies and tor at the same time.
+Copy & paste đoạn còn thiếu ở config_example.json sang để sử dụng tor
 
 ```json
 "using_tor": false,
@@ -133,15 +134,15 @@ tor is can be used as an alternative to normal proxies. Note that currently, you
 "tor_delay": 5,
 "use_builtin_tor": true 
 ```
-the config values are as follows:
-- deactivates or activates tor
-- sets the httptunnel port that should be used
-- sets the tor control port
-- sets the password (leave it as "Passwort" if you want to use the default binaries
-- the delay that tor should receive to process a new connection
-- whether the included tor binary should be used. It is preconfigured. If you want to use your own binary, make sure you configure it right.
+Những cái đặt bên trên có thể:
+- Tắt hoặc mở Tor
+- Đặt cổng httptunnel sẽ được sử dụng
+- Đặt cổng kiếm soát của Tor
+- Đặt mật khẩu (Cứ để nó là "Passwort" nếu bạn muốn sử dụng mã nhị phân mặc định)
+- Đặt độ trễ để tor chờ trước khi nó lập một quá trình mới
+- Tùy thuộc vào việc bạn có muốn tùy chỉnh nó không. Hiện tại nó đã được chỉnh sẵn. Nếu bạn muốn tự tạo mã riêng thì hãy chắc chắn rằng bạn sẽ làm đúng
 
-note that when using the included binaries, only the tunnel port is explicitly set while starting tor.
+Lưu ý rằng khi bạn sử dụng mã mặc định, chỉ có tunnel port là được chỉnh khi bạn mở tor.
 
 <h3>If you want to use your own binaries, follow these steps:</h3>
 
